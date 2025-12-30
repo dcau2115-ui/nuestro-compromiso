@@ -76,21 +76,29 @@
             font-size: 0.9rem;
         }
 
-        .btn-whatsapp {
+        .btn {
             display: inline-block;
-            background: #25D366;
-            color: #fff;
             padding: 16px 30px;
             border-radius: 50px;
             font-size: 1.1rem;
             text-decoration: none;
-            margin-top: 25px;
+            margin: 15px 10px;
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .btn-whatsapp:hover {
+        .btn:hover {
             transform: scale(1.05);
             box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: #fff;
+        }
+
+        .btn-maps {
+            background: #c89b7b;
+            color: #fff;
         }
 
         footer {
@@ -102,15 +110,15 @@
 </head>
 
 <body>
-
-<div class="container">
     
-<!-- Texto principal -->
-    <h1>Pedida de Mano</h1>
+ <!-- Texto principal -->
+    <h1>Nos hemos comprometido</h1>
     <p class="subtitle">
-        Estamos creando un recuerdo inolvidable 💍
+        Estas invitado(a) a nuestra fiesta de compromiso 💍
     </p>
     
+<div class="container">
+
     <!-- Imagen principal -->
     <div class="hero">
         <img src="invitacion.png" alt="Invitación Pedida de Mano">
@@ -121,7 +129,7 @@
         <p><strong>📍 Lugar:</strong> Villa Bustamante</p>
         <p><strong>📌 Dirección:</strong> Calle Los Dátiles, Huanchaco – Trujillo</p>
         <p><strong>📅 Fecha:</strong> 24 de enero de 2026</p>
-        <p><strong>⏰ Hora:</strong> 7:00 PM</p>
+        <p><strong>⏰ Hora:</strong> 5:30 PM</p>
     </div>
 
     <!-- Cuenta regresiva -->
@@ -145,12 +153,19 @@
         </div>
     </div>
 
-    <!-- Botón WhatsApp -->
+    <!-- Botones -->
     <a 
-        class="btn-whatsapp" 
+        class="btn btn-whatsapp" 
         href="https://wa.me/51924547592?text=Hola,%20confirmo%20mi%20asistencia%20a%20la%20pedida%20de%20mano.%20¡Gracias!"
         target="_blank">
-        💬 Confirmar asistencia por WhatsApp
+        💬 Confirmar asistencia
+    </a>
+
+    <a 
+        class="btn btn-maps"
+        href="https://maps.app.goo.gl/N5S3ya2N9fkUeCk4A"
+        target="_blank">
+        📍 Ver ubicación
     </a>
 
     <footer>
@@ -169,7 +184,7 @@
 
         if (distance < 0) {
             clearInterval(countdown);
-            document.querySelector(".countdown").innerHTML = 
+            document.querySelector(".countdown").innerHTML =
                 "<h3>¡Hoy es el gran día! 💖</h3>";
             return;
         }
@@ -188,4 +203,3 @@
 
 </body>
 </html>
-
