@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Pedida de Mano | A & D</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Estilos -->
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Georgia', serif;
+            background: #f7f2ee;
+            color: #6b4e3d;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .hero img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-top: 30px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .info {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 25px;
+            margin: 30px 0;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+
+        .info p {
+            font-size: 1.1rem;
+            margin: 10px 0;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .time-box {
+            background: #e8d6c6;
+            color: #6b4e3d;
+            padding: 15px 20px;
+            border-radius: 12px;
+            min-width: 90px;
+        }
+
+        .time-box span {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .time-box small {
+            font-size: 0.9rem;
+        }
+
+        .btn-whatsapp {
+            display: inline-block;
+            background: #25D366;
+            color: #fff;
+            padding: 16px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            text-decoration: none;
+            margin-top: 25px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-whatsapp:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        footer {
+            margin: 40px 0 10px;
+            font-size: 0.9rem;
+            color: #9b7b66;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Imagen principal -->
+    <div class="hero">
+        <img src="invitacion.png" alt="Invitación Pedida de Mano">
+    </div>
+
+    <!-- Texto principal -->
+    <h1>Pedida de Mano</h1>
+    <p class="subtitle">
+        Estamos creando un recuerdo inolvidable 💍
+    </p>
+
+    <!-- Información del evento -->
+    <div class="info">
+        <p><strong>📍 Lugar:</strong> Villa Bustamante</p>
+        <p><strong>📌 Dirección:</strong> Calle Los Dátiles, Huanchaco – Trujillo</p>
+        <p><strong>📅 Fecha:</strong> 24 de enero de 2026</p>
+        <p><strong>⏰ Hora:</strong> 7:00 PM</p>
+    </div>
+
+    <!-- Cuenta regresiva -->
+    <h2>Cuenta regresiva</h2>
+    <div class="countdown">
+        <div class="time-box">
+            <span id="days">0</span>
+            <small>Días</small>
+        </div>
+        <div class="time-box">
+            <span id="hours">0</span>
+            <small>Horas</small>
+        </div>
+        <div class="time-box">
+            <span id="minutes">0</span>
+            <small>Minutos</small>
+        </div>
+        <div class="time-box">
+            <span id="seconds">0</span>
+            <small>Segundos</small>
+        </div>
+    </div>
+
+    <!-- Botón WhatsApp -->
+    <a 
+        class="btn-whatsapp" 
+        href="https://wa.me/51924547592?text=Hola,%20confirmo%20mi%20asistencia%20a%20la%20pedida%20de%20mano.%20¡Gracias!"
+        target="_blank">
+        💬 Confirmar asistencia por WhatsApp
+    </a>
+
+    <footer>
+        Con cariño, A & D ✨
+    </footer>
+
+</div>
+
+<!-- JavaScript Cuenta Regresiva -->
+<script>
+    const eventDate = new Date("2026-01-24T19:00:00").getTime();
+
+    const countdown = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = eventDate - now;
+
+        if (distance < 0) {
+            clearInterval(countdown);
+            document.querySelector(".countdown").innerHTML = 
+                "<h3>¡Hoy es el gran día! 💖</h3>";
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerText = days;
+        document.getElementById("hours").innerText = hours;
+        document.getElementById("minutes").innerText = minutes;
+        document.getElementById("seconds").innerText = seconds;
+    }, 1000);
+</script>
+
+</body>
+</html>
